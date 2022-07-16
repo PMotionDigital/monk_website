@@ -1,0 +1,21 @@
+@mixin defaultInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $gray2;
+    outline: none;
+    color: $black2;
+    @include h1;
+    padding-bottom: 1rem;
+    max-width: 40rem;
+    
+    &:focus {
+        &::placeholder {
+            opacity: 0;
+            transition: .25s ease-out;
+        }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        max-width: unset;
+        width: 100%;
+    }
+}

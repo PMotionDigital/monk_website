@@ -1,0 +1,65 @@
+@import '../mixins/mixin-main.scss';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main {
+    position: relative;
+    z-index: 2;
+    min-height: 85vh;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+// global flex blocks properties
+pre {
+    white-space: pre-line;
+    padding-top: 1rem;  
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    font-family: 'TTSmalls';
+}
+
+body {
+    background-color: $black;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@font-face {
+    font-family: 'TTSmalls';
+    src: url('../fonts/TTSmalls-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// @font-face {
+//     font-family: 'Formular';
+//     src: url('../fonts/FormularMedium.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: normal;
+// }
+
+
+// @font-face {
+//     font-family: 'Geometria';
+//     src: url('../fonts/Geometria-Regular.ttf') format('truetype');
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'Geometria';
+//     src: url('../fonts/Geometria-Medium.ttf') format('truetype');
+//     font-style: 500;
+// }

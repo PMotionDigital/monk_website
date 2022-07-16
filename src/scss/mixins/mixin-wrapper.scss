@@ -1,0 +1,17 @@
+@mixin mainWrapper {
+    padding: 0 1.875rem;
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        padding: .625rem .625rem;
+    }
+}
+
+@mixin fullWidthMain {
+    margin-left: -1.875rem;
+    margin-right: -1.875rem;
+    width: calc(100% + 3.75rem);
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        margin-left: -.625rem;
+        margin-right: -.625rem;
+        width: calc(100% + 1.25rem);
+    }
+}

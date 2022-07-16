@@ -1,0 +1,5 @@
+@import '../mixins/mixin-main.scss';
+
+.gutenberg-content {
+    @include mainWrapper
+}

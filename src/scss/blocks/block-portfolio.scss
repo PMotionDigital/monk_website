@@ -1,0 +1,70 @@
+@import '../mixins/mixin-main.scss';
+.block-portfolio_list-item {
+    color: $white;
+    list-style: none;
+    display: flex;
+    gap: 1.875rem;
+    &:not(:first-of-type) {
+        margin-top: 1.875rem;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 10rem;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        display: block;
+        img {
+            padding: 3rem;
+        }
+        
+    }
+}
+
+.block-portfolio_list-item_bg {
+    min-width: 64rem;
+    min-height: 36rem;
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        min-width: unset;
+        min-height: 12.5rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.block-portfolio_wrap-guter-content {
+    h2 {
+        @include h1;
+        font-weight: normal;
+    }
+}
+
+.block-portfolio_list-item_content {
+   color: $black;
+   max-width: 20rem;
+   padding-right: 2rem;
+    h3 {
+        @include paragraphDefault;
+        font-weight: bold;
+        margin-bottom: .5rem;
+    }
+    p {
+        color: $lightGray;
+        @include paragraphDefault
+    }
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        max-width: unset;
+        width: 100%;
+        padding-right: 0;
+        margin-top: 1rem;
+        
+    }
+}
+
+.block-portfolio {
+    background-color: $white;
+    @include fullWidthMain;
+    padding: 0 1.875rem;
+}

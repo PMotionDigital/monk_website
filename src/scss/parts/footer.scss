@@ -1,0 +1,66 @@
+@import '../mixins/mixin-main.scss';
+
+.main-footer {
+    @include mainWrapper;
+}
+
+.main-footer_phone {
+    margin-top: 10rem;
+}
+
+.main-footer_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-footer_capture {
+    color: $white;
+    @include paragraphDefault;
+    padding-bottom: 2rem;
+}
+
+.main-footer_form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    .wpcf7-form {
+        input {
+            &:not(.wpcf7-submit) {
+                @include defaultInput
+            }
+            
+        }
+    }
+    .wpcf7-submit {
+        border-bottom: none;
+        color: $blue;
+        border: none;
+        background: transparent;
+        @include h1;
+        cursor: pointer;
+        padding-top: 1.875rem;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        display: block;
+        width: 100%;
+    }
+}
+
+.main-footer_form-text {
+    color: $white;
+    max-width: 33.1875rem;
+    h2 {
+        @include h1;
+        
+    }
+    p {
+        color: $lightGray;
+        margin-top: 6.25rem;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        p {
+            margin-top: 2rem;
+        }
+    }
+}
