@@ -42,10 +42,18 @@ function render_portfolio_block($block)
     if (!empty($block['className'])) {
         $className .= ' ' . $block['className'];
     }
+
+    $arrayPortfolios = [];
+    if( have_rows('block_portfolio') ): 
+             while( have_rows('block_portfolio') ) : the_row();
+                array_push($arrayPortfolios, get_sub_field('block_portfolio_item'));
+             endwhile; 
+    endif;
+
+
     $args = array(  
         'post_type' => 'portfolio',
-        'post_status' => 'publish',
-        'posts_per_page' => 3,
+        'post__in' => $arrayPortfolios,
     );
     // $link = get_post_type_archive_link('portfolio' );
     $loop = new WP_Query( $args );

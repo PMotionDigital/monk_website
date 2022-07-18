@@ -43,14 +43,19 @@ function render_news_block($block)
         $className .= ' ' . $block['className'];
     }
     // $category_id = get_field('category');
-
+    $arrayPosts = [];
+    if( have_rows('block_news') ): 
+             while( have_rows('block_news') ) : the_row();
+                array_push($arrayPosts, get_sub_field('block_news_item'));
+             endwhile; 
+    endif;
     $args = array(  
         // 'cat' => $category_id,
-        'post_status' => 'publish',
-        'posts_per_page' => 6,
+        'post__in' => $arrayPosts,
     );
     // $link = get_post_type_archive_link('portfolio' );
     $loop = new WP_Query( $args );
+    
 ?>
     <div id="<?php echo esc_html($id); ?>" class="block-news <?php echo esc_html($className); ?>">
         <div class="block-news_wrap">
@@ -63,6 +68,7 @@ function render_news_block($block)
                 <li class="block-news_wrap-nav_date">Дата</li>
                 <li class="block-news_wrap-nav_author">Автор</li>
             </ul>
+            
             <ul class="block-news_wrap-list">
                 <?php while ( $loop->have_posts() ) : $loop->the_post(); 
                     $post_id = get_the_ID();
