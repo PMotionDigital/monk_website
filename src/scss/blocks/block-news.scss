@@ -4,6 +4,9 @@
     background-color: $white;
     @include fullWidthMain;
     padding: 2rem 1.875rem;
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        padding: .625rem;
+    }
 }
 
 
@@ -27,9 +30,30 @@
     }
 }
 
+.block-news_wrap-list {
+    margin-left: -1.875rem;
+    margin-right: -1.875rem;
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
 .block-news_list-item {
     margin-bottom: 2.5rem;
-
+    transition: .25s ease-out;
+    align-items: center;
+    padding: 1rem 1.875rem;
+    text-decoration: none;
+    color: $black;
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        padding: 0;
+    }
+    @media only screen and (min-width: 1200px) {
+        &:hover {
+            background-color: $gray3;
+        }
+    }
 }
 
 .block-news_wrap-nav {

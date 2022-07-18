@@ -60,14 +60,18 @@ function render_portfolio_block($block)
                     $post_id = get_the_ID();
                     $block_portfolio_bg = get_field('block_portfolio_bg', $post_id);
                 ?>
-                    <li class="block-portfolio_list-item">
-                        <div class="block-portfolio_list-item_bg" style="background-color: <?= $block_portfolio_bg ?>">
-                            <?php the_post_thumbnail(); ?>
-                        </div>
-                        <div class="block-portfolio_list-item_content">
-                            <h3><?php the_title(); ?></h3>
-                            <?php the_excerpt() ?>
-                        </div>
+                    <li>
+                        <a href="<?php echo get_permalink( $post_id ) ?>" class="block-portfolio_list-item">
+                            <div class="block-portfolio_list-item_bg" style="background-color: <?= $block_portfolio_bg ?>">
+                                <div class="block-portfolio_list-item_bg-wrap">
+                                    <?php the_post_thumbnail(); ?>
+                                </div>
+                            </div>
+                            <div class="block-portfolio_list-item_content">
+                                <h3><?php the_title(); ?></h3>
+                                <?php the_excerpt() ?>
+                            </div>
+                        </a>
                     </li>
                 <?php endwhile; ?>
             </ul>

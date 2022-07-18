@@ -4,33 +4,76 @@
     list-style: none;
     display: flex;
     gap: 1.875rem;
-    &:not(:first-of-type) {
-        margin-top: 1.875rem;
-    }
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        padding: 10rem;
-    }
+    color: $black;
+    text-decoration: none;
+    
+   
+    
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         display: block;
-        img {
-            padding: 3rem;
+    }
+    &:hover {
+        .block-portfolio_list-item_bg-wrap {
+            &::before {
+                opacity: 1;
+            }
         }
-        
+    }
+}
+
+.block-portfolio_wrap-list {
+    list-style: none;
+    li {
+        &:not(:first-of-type) {
+            margin-top: 1.875rem;
+        }
+    }
+}
+
+.block-portfolio_list-item_bg-wrap {
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        padding-top: 70%;
+    }
+    @media only screen and (min-width: 1200px) {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(../img/round.svg) center center no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            opacity: 0;
+            transition: .25s ease-out;
+        }
     }
 }
 
 .block-portfolio_list-item_bg {
-    min-width: 64rem;
-    min-height: 36rem;
-    @media only screen and (min-width: 320px) and (max-width: 1200px) {
-        min-width: unset;
-        min-height: 12.5rem;
+    width: 60%;
+    position: relative;
+    padding: 0 5rem;
+    img {
         width: 100%;
-        display: flex;
-        align-items: center;
+        height: 100%;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0 5rem;
+    }
+    
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        width: 100%;
+        img {
+            padding: 0 3rem
+        }
     }
 }
 
@@ -43,7 +86,8 @@
 
 .block-portfolio_list-item_content {
    color: $black;
-   max-width: 20rem;
+   width: 40%;
+   max-width: 30rem;
    padding-right: 2rem;
     h3 {
         @include paragraphDefault;
@@ -67,4 +111,7 @@
     background-color: $white;
     @include fullWidthMain;
     padding: 0 1.875rem;
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        padding: .625rem;
+    }
 }

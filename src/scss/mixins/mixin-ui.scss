@@ -5,8 +5,9 @@
     outline: none;
     color: $black2;
     @include h1;
+    padding-top: 1rem;
     padding-bottom: 1rem;
-    max-width: 40rem;
+    width: 100%;
     
     &:focus {
         &::placeholder {

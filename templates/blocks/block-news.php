@@ -66,30 +66,31 @@ function render_news_block($block)
             <ul class="block-news_wrap-list">
                 <?php while ( $loop->have_posts() ) : $loop->the_post(); 
                     $post_id = get_the_ID();
-                ?>
-                    <li class="block-news_list-item">
-                        <div class="block-news_list-item_title">
-                            <h3><?php the_title(); ?></h3>
-                        </div>
-                        <div class="block-news_list-item_category">
-                            <p>
-                                <?php $cats = get_the_category($post_id);
-                                    foreach ($cats as $cat) :
-                                        if (count($cats) > 1) :
-                                        echo $cat->name . ',';
-                                        else :
-                                        echo $cat->name;
-                                        endif;
-                                    endforeach;
-                                ?>
-                            </p>
-                        </div>
-                        <div class="block-news_list-item_date">
-                            <p><?= get_the_date() ?></p>
-                        </div>
-                        <div class="block-news_list-item_author">
-                            <p><?= the_field('block_news_author', $post_id); ?></p>
-                        </div>
+                ?>  <li>
+                        <a href="<?php echo get_permalink( $post_id ) ?>" class="block-news_list-item">
+                            <div class="block-news_list-item_title">
+                                <h3><?php the_title(); ?></h3>
+                            </div>
+                            <div class="block-news_list-item_category">
+                                <p>
+                                    <?php $cats = get_the_category($post_id);
+                                        foreach ($cats as $cat) :
+                                            if (count($cats) > 1) :
+                                            echo $cat->name . ',';
+                                            else :
+                                            echo $cat->name;
+                                            endif;
+                                        endforeach;
+                                    ?>
+                                </p>
+                            </div>
+                            <div class="block-news_list-item_date">
+                                <p><?= get_the_date() ?></p>
+                            </div>
+                            <div class="block-news_list-item_author">
+                                <p><?= the_field('block_news_author', $post_id); ?></p>
+                            </div>
+                        </a>
                     </li>
                 <?php endwhile; ?>
             </ul>

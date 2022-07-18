@@ -36,6 +36,12 @@ img, svg {
     height: auto;
 }
 
+.gutenberg-content {
+    h2 {
+        @include h1;
+        font-weight: 400;
+    }
+}
 
 @font-face {
     font-family: 'TTSmalls';
