@@ -13,8 +13,20 @@
     flex-direction: column;
     align-items: center;
     a {
+        display: block;
+        width: 100%;
+        img {
+            width: 100%;
+        }
         &:last-of-type {
             margin-top: -3rem;
+        }
+    }
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        a {
+            &:last-of-type {
+                margin-top: 0;
+            }
         }
     }
 }

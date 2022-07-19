@@ -7,35 +7,36 @@
     padding: 2rem 1.875rem;
     &--three {
         background-color: $white;
+        
         .block-list_grid-item {
             color: $black;
+            &::before {
+                opacity: 1;
+            }
+            &::after {
+                background: url(../img/icons/arrow-small.svg) no-repeat;
+                background-size: contain;
+            }
         }
     }
     @media only screen and (min-width: 1200px) {
-        .block-list_grid-item {
-            &:hover {
-                &::after {
-                    background: url(../img/icons/hover_arrow_white.svg) no-repeat;
-                    background-size: contain;
-                    width: 100%;
+        &--three {
+            .block-list_grid-item {
+                &:hover {
+                    &::after {
+                        background: url(../img/icons/arrow-black.svg) no-repeat;
+                        background-size: contain;
+                        width: 100%;
+                    }
                 }
                 
             }
         }
-        
-        &--three {
-            background-color: $white;
+        &--four {
             .block-list_grid-item {
-                &::before {
-                    opacity: 1;
-                }
-                &::after {
-                    background: url(../img/icons/arrow-black.svg) no-repeat;
-                    background-size: contain;
-                }
                 &:hover {
                     &::after {
-                        background: url(../img/icons/hover_arrow.svg) no-repeat;
+                        background: url(../img/icons/hover_arrow_white.svg) no-repeat;
                         background-size: contain;
                         width: 100%;
                     }
@@ -46,7 +47,6 @@
         
     }
     
-
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         padding: 0;
     }

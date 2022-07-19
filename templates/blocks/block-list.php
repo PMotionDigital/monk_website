@@ -44,10 +44,10 @@ function render_list_block($block)
     }
 
 ?>
-<div id="<?php echo esc_html($id); ?>" class="block-list <?= get_field('block_list_grid_white_bg') ? 'block-list--three' : '' ?> <?php echo esc_html($className); ?>">
+<div id="<?php echo esc_html($id); ?>" class="block-list <?= get_field('block_list_grid_white_bg') ? 'block-list--three' : 'block-list--four' ?> <?php echo esc_html($className); ?>">
 
 <?php if( have_rows('block_list_grid') ): ?>
-    <ul class="block-list_wrapper-grid <?= get_field('block_list_grid_white_bg') ? 'block-list_wrapper-grid--three' : '' ?>">
+    <ul class="block-list_wrapper-grid <?= get_field('block_list_grid_white_bg') ? 'block-list_wrapper-grid--three' : 'block-list_wrapper-grid--four' ?>">
         <?php while( have_rows('block_list_grid') ) : the_row(); ?>
             <li class="block-list_grid-item <?= get_sub_field('block_list_socials') ? 'block-list_grid-item--notarrow' : 'block-list_grid-item--witharrow' ?>">
                 <div>
