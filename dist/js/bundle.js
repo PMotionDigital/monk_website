@@ -20,6 +20,8 @@ if (innerWidth < 1200) {
     
 }
 
+if (innerWidth > 1200) {
+
 class FollowingLine {
                 
     /**
@@ -171,3 +173,4 @@ Array.from(document.querySelectorAll('.block-news_list-item')).forEach(l => {
     const fd = new FollowingLine(l, '.follow-cursor');
     console.log(fd);
 });
+}
