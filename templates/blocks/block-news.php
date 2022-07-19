@@ -96,6 +96,7 @@ function render_news_block($block)
                             <div class="block-news_list-item_author">
                                 <p><?= the_field('block_news_author', $post_id); ?></p>
                             </div>
+                            
                             <?php if (has_post_thumbnail()) : ?>
                                 <div class="follow-cursor">
                                     <?php the_post_thumbnail(); ?>
