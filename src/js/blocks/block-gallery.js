@@ -10,3 +10,26 @@ if (innerWidth < 1200) {
     }
     
 }
+
+gsap.registerPlugin(ScrollTrigger);
+let blockGalleryItems = document.querySelectorAll('.block-gallery_list-item')
+
+blockGalleryItems.forEach((el,index) => {
+    let t1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: el,
+            onEnter: () => {
+                
+                setTimeout(()=> {
+                    el.classList.add('block-gallery_list-item--active')
+                    console.log(index)
+                }, (index + 1) * 200)
+                
+            },
+            
+            start: "bottom bottom",
+            end: "top bottom",
+        } 
+    });
+})
+

@@ -37,6 +37,7 @@ img, svg {
 }
 
 .gutenberg-content {
+    overflow: hidden;
     h2 {
         @include h1;
         font-weight: 400;

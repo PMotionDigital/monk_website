@@ -5,6 +5,13 @@
 }
 .block-gallery_list-item {
     list-style: none;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: .4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    &--active {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .block-gallery_content {
@@ -22,6 +29,8 @@
 
 .block-gallery_content-img {
     margin-left: 3rem;
+    position: relative;
+    z-index: 3;
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         position: relative;
         z-index: 9;

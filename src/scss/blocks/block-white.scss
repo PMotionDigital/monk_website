@@ -1,7 +1,7 @@
 @import '../mixins/mixin-main.scss';
 
 .block-white-layout {
-    background-color: $white;
+    background-color: $black;
     @include fullWidthMain;
     padding: 0 1.875rem;
     @media only screen and (min-width: 320px) and (max-width: 1200px) {

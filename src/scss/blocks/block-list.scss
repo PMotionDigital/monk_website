@@ -3,10 +3,10 @@
 @import '../mixins/mixin-main.scss';
 
 .block-list {
-    background-color: $black;
+    // background-color: $black;
     padding: 2rem 1.875rem;
     &--three {
-        background-color: $white;
+        // background-color: $white;
         
         .block-list_grid-item {
             color: $black;
@@ -73,6 +73,13 @@
     padding-bottom: 10rem;
     @include paragraphDefault;
     color: $white;
+    opacity: 0;
+    transform: translateX(50%);
+    transition: .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    &--active {
+        opacity: 1;
+        transform: translateX(0);
+    }
     p {
         &:last-of-type {
             margin-top: .3rem;

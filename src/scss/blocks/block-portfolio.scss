@@ -12,13 +12,13 @@
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         display: block;
     }
-    &:hover {
-        .block-portfolio_list-item_bg-wrap {
-            &::before {
-                opacity: 1;
-            }
-        }
-    }
+    // &:hover {
+    //     .block-portfolio_list-item_bg-wrap {
+    //         &::before {
+    //             opacity: 1;
+    //         }
+    //     }
+    // }
 }
 
 .block-portfolio_wrap-list {
@@ -57,6 +57,8 @@
     width: 60%;
     position: relative;
     padding: 0 5rem;
+    transform: translateX(-200%);
+    transition: .8s ease-out;
     img {
         width: 100%;
         height: 100%;
@@ -85,10 +87,12 @@
 }
 
 .block-portfolio_list-item_content {
-   color: $black;
-   width: 40%;
-   max-width: 30rem;
-   padding-right: 2rem;
+    transition: .8s ease-out;
+    color: $black;
+    width: 40%;
+    max-width: 30rem;
+    padding-right: 2rem;
+    transform: translateX(200%);
     h3 {
         @include paragraphDefault;
         font-weight: bold;
@@ -108,9 +112,18 @@
 }
 
 .block-portfolio {
-    background-color: $white;
+    // background-color: $white;
     @include fullWidthMain;
     padding: 0 1.875rem;
+    
+    &--active {
+        .block-portfolio_list-item_bg {
+            transform: translateX(0);
+        }
+        .block-portfolio_list-item_content {
+            transform: translateX(0);
+        }
+    }
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         padding: .625rem;
     }
