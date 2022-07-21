@@ -48,7 +48,7 @@ blockGalleryItems.forEach((el,index) => {
                 
             },
             
-            start: "bottom bottom",
+            start: "top bottom",
             end: "top bottom",
         } 
     });
@@ -72,8 +72,8 @@ blockLists.forEach((el) => {
                 
             },
             
-            start: "bottom bottom",
-            end: "top bottom",
+            start: "-=50% bottom",
+            end: "bottom bottom",
         } 
     });
 })
@@ -265,8 +265,8 @@ blockWhiteLayouts.forEach((el,index) => {
                 
             },
             
-            start: "-=500",
-            end: "bottom bottom",
+            start: "top top",
+            end: "top bottom",
         } 
     });
 })
@@ -293,16 +293,39 @@ function animateValue(classEl, start, end, duration) {
 gsap.registerPlugin(ScrollTrigger);
 let logo = document.querySelector('.main-header_logo')
 
+window.onload = function() {
+let t1 = gsap.timeline({
+    scrollTrigger: {
+        trigger: logo,
+        onEnter: () => {
+            logo.classList.add('main-header_logo--active')
+        },
+        
+        start: "-=200",
+        end: "top top",
+    } 
+});
+}
 
-    let t1 = gsap.timeline({
-        scrollTrigger: {
-            trigger: logo,
-            onEnter: () => {
-                logo.classList.add('main-header_logo--active')
-            },
-            
-            start: "-=200",
-            end: "top top",
-        } 
-    });
-
+jQuery(document).ready(function ($) {
+    $(window).load(function() {
+        $('.loader').hide()
+    })
+    gsap.registerPlugin(ScrollTrigger);
+    let starAnim = document.querySelectorAll('.start-anim')
+    starAnim.forEach((el,index) => {
+        let t1 = gsap.timeline({
+            scrollTrigger: {
+                trigger: el,
+                onEnter: () => {
+                    el.classList.add('active')
+                },
+                
+                start: "top bottom",
+                end: "top bottom",
+            } 
+        });
+    })
+    
+    
+})

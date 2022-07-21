@@ -9,6 +9,12 @@
 </head>
 
 <body <?php body_class() ?>>
+    <?php 
+        wp_body_open(); 
+        if ( is_front_page() ) {
+            get_template_part( 'templates/components/loader' );
+        }
+    ?>
     <header class="main-header">
         <a href="/" class="main-header_logo">
             <?php
@@ -16,7 +22,7 @@
                 echo wp_get_attachment_image($header_logo, 'large_image', false); 
             ?>
         </a>
-        <div class="main-header_imge">
+        <div class="main-header_imge start-anim">
             <?php 
                 $header_logo_graph = get_field('header_logo_graph', 'option');
                 echo wp_get_attachment_image($header_logo_graph, 'large_image', false); 

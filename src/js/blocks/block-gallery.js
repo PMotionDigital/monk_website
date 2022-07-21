@@ -27,7 +27,7 @@ blockGalleryItems.forEach((el,index) => {
                 
             },
             
-            start: "bottom bottom",
+            start: "top bottom",
             end: "top bottom",
         } 
     });

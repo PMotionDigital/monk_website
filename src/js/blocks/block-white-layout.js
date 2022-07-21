@@ -13,8 +13,8 @@ blockWhiteLayouts.forEach((el,index) => {
                 
             },
             
-            start: "-=500",
-            end: "bottom bottom",
+            start: "top top",
+            end: "top bottom",
         } 
     });
 })

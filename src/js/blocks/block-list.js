@@ -15,8 +15,8 @@ blockLists.forEach((el) => {
                 
             },
             
-            start: "bottom bottom",
-            end: "top bottom",
+            start: "-=50% bottom",
+            end: "bottom bottom",
         } 
     });
 })

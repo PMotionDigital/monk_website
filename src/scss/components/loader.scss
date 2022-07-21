@@ -1,0 +1,17 @@
+@import '../mixins/mixin-main.scss';
+.loader {
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-color: $black;
+    img {
+        width: 20rem;
+    }
+}

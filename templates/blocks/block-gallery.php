@@ -57,13 +57,13 @@ function render_gallery_block($block)
             </ul>
         <?php endif; ?>
         <div class="block-gallery_content">
-            <div class="block-gallery_content-img">
+            <div class="block-gallery_content-img start-anim">
                 <?php $graph_image = get_field('block_gallery_graphity_image');
                 echo wp_get_attachment_image($graph_image, 'large_image', false);
                 ?>
             </div>
             <?php if( have_rows('block_gallery_desc') ): ?>
-            <div class="block-gallery_content-text">
+            <div class="block-gallery_content-text start-anim">
                 <?php while( have_rows('block_gallery_desc') ) : the_row(); ?>
                 <p><?php the_sub_field('block_gallery_desc_text'); ?></p>
                 <?php endwhile; ?>

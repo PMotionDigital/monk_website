@@ -33,6 +33,9 @@
 .block-news_wrap-list {
     margin-left: -1.875rem;
     margin-right: -1.875rem;
+    li {
+        list-style: none;
+    }
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         margin-left: 0;
         margin-right: 0;
@@ -41,7 +44,7 @@
 
 .block-news_list-item {
     margin-bottom: 2.5rem;
-    transition: .25s ease-out;
+    transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
     align-items: center;
     padding: 1rem 1.875rem;
     text-decoration: none;
@@ -139,7 +142,7 @@
         top: 0; /* задаём абсолютное позиционирование, чтобы элемент не влиял на остальные элементы и его можно было бы позиционировать следом за курсором */
         z-index: 999; /* чтобы элемент был над остальными элементами */
         pointer-events: none; /* чтобы сквозь элемент можно было взаимодействовать с элементами, находящимися под ним */
-        transition: opacity .25s ease-out;
+        transition: .5s ease-out;
         opacity: 0;
         img {
             width: 100%;

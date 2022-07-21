@@ -48,7 +48,7 @@
             height: 100%;
             background-size: contain;
             opacity: 0;
-            transition: .25s ease-out;
+            transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
         }
     }
 }
@@ -57,8 +57,8 @@
     width: 60%;
     position: relative;
     padding: 0 5rem;
-    transform: translateX(-200%);
-    transition: .8s ease-out;
+    transition: all 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+    clip-path: inset(2rem 2rem 2rem 2rem);
     img {
         width: 100%;
         height: 100%;
@@ -87,12 +87,10 @@
 }
 
 .block-portfolio_list-item_content {
-    transition: .8s ease-out;
     color: $black;
     width: 40%;
     max-width: 30rem;
     padding-right: 2rem;
-    transform: translateX(200%);
     h3 {
         @include paragraphDefault;
         font-weight: bold;
@@ -116,12 +114,17 @@
     @include fullWidthMain;
     padding: 0 1.875rem;
     
+    h2 {
+        color: $white;
+    }
     &--active {
-        .block-portfolio_list-item_bg {
-            transform: translateX(0);
+        
+        h2 {
+            color: $black;
         }
-        .block-portfolio_list-item_content {
-            transform: translateX(0);
+        .block-portfolio_list-item_bg {
+            transition: all 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+            clip-path: inset(0rem 0rem 0rem 0rem);
         }
     }
     @media only screen and (min-width: 320px) and (max-width: 1200px) {

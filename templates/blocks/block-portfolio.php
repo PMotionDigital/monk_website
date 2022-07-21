@@ -76,7 +76,7 @@ function render_portfolio_block($block)
                                 </div>
                             </div>
                             <div class="block-portfolio_list-item_content">
-                                <h3><?php the_title(); ?></h3>
+                                <h3 class="start-anim"><?php the_title(); ?></h3>
                                 <?php the_excerpt() ?>
                             </div>
                         </a>
