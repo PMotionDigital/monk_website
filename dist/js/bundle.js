@@ -258,7 +258,11 @@ blockWhiteLayouts.forEach((el,index) => {
         scrollTrigger: {
             trigger: el,
             onEnter: () => {
-                animateValue(".block-white-layout", 0, 255, 500);
+                if (!el.classList.contains('block-white-layout--active')) {
+                    el.classList.add('block-white-layout--active')
+                    animateValue(".block-white-layout", 0, 255, 500);
+                }
+                
             },
             
             start: "-=500",
