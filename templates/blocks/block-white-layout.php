@@ -8,7 +8,7 @@ function my_acf_block_white()
 
         // Register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'White block',
+            'name'              => 'white_block',
             'title'             => __('Белый фон'),
             'description'       => __('Белый фон'),
             'render_callback'   => 'render_white_block',

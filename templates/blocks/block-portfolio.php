@@ -8,7 +8,7 @@ function my_acf_block_portfolio()
 
         // Register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'Portfolio block',
+            'name'              => 'portfolio_block',
             'title'             => __('Портфолио'),
             'description'       => __('Портфолио'),
             'render_callback'   => 'render_portfolio_block',
@@ -77,7 +77,9 @@ function render_portfolio_block($block)
                             </div>
                             <div class="block-portfolio_list-item_content">
                                 <h3 class="start-anim"><?php the_title(); ?></h3>
-                                <?php the_excerpt() ?>
+                                <div class="start-anim">
+                                    <?php the_excerpt() ?>
+                                </div>
                             </div>
                         </a>
                     </li>

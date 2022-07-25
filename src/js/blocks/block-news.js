@@ -1,3 +1,4 @@
+gsap.registerPlugin(ScrollTrigger);
 if (innerWidth > 1200) {
 
 class FollowingLine {
@@ -152,3 +153,22 @@ Array.from(document.querySelectorAll('.block-news_list-item')).forEach(l => {
     console.log(fd);
 });
 }
+
+let newsItem = document.querySelectorAll('.block-news_list-item');
+
+newsItem.forEach((el,index) => {
+    let t1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: el,
+            onEnter: () => {
+                setTimeout(()=> {
+                    el.classList.add('block-news_list-item--active')
+                }, (index + 1) * 200)
+            },
+            
+            start: "-=800 top",
+            end: "-=800 bottom",
+        } 
+    });
+})
+

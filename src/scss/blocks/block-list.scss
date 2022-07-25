@@ -1,43 +1,45 @@
 @import '../mixins/mixin-main.scss';
 
-@import '../mixins/mixin-main.scss';
-
 .block-list {
-    // background-color: $black;
-    padding: 2rem 1.875rem;
-    &--three {
-        // background-color: $white;
-        
+    height: 100%;
+    opacity: 0;
+    transform: translateX(50%);
+    transition: transform .6s cubic-bezier(.85,0,.15,1);
+    &--active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    &--white {
         .block-list_grid-item {
-            color: $black;
+            p {
+                color: $black;
+            }
             &::before {
                 opacity: 1;
             }
-            &::after {
-                background: url(../img/icons/arrow-small.svg) no-repeat;
-                background-size: contain;
+            .block-list_arrow {
+                background: url(../img/icons/arrow-small.svg) left bottom  no-repeat;
+                width: 100%;
             }
         }
     }
     @media only screen and (min-width: 1200px) {
-        &--three {
+        &--white {
             .block-list_grid-item {
                 &:hover {
-                    &::after {
-                        background: url(../img/icons/arrow-black.svg) no-repeat;
-                        background-size: contain;
+                    .block-list_arrow {
+                        background: url(../img/icons/arrow-black.svg) left bottom no-repeat;
                         width: 100%;
                     }
                 }
                 
             }
         }
-        &--four {
+        &--black {
             .block-list_grid-item {
                 &:hover {
-                    &::after {
-                        background: url(../img/icons/hover_arrow_white.svg) no-repeat;
-                        background-size: contain;
+                    .block-list_arrow {
+                        background: url(../img/icons/hover_arrow_white.svg) left bottom no-repeat;
                         width: 100%;
                     }
                     
@@ -53,14 +55,8 @@
 }
 
 .block-list_wrapper-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 1rem;
     list-style: none;
-    &--three {
-        grid-template-columns: repeat(3,1fr);
-
-    }
+    height: 100%;
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         display: block;
         width: 100%;
@@ -70,43 +66,17 @@
 .block-list_grid-item {
     position: relative;
     padding-left: .625rem;
-    padding-bottom: 10rem;
+    height: 100%;
     @include paragraphDefault;
-    color: $white;
-    opacity: 0;
-    transform: translateX(50%);
-    transition: transform .6s cubic-bezier(0.85, 0, 0.15, 1);
-    &--active {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
     p {
+        color: $white;
         &:last-of-type {
             margin-top: .3rem;
             color: $lightGray;
-        }
-    }
-    &--notarrow {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-bottom: 0;
-        &::after {
-            content: none;
-        }
-    }
-    &--witharrow {
-        
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: .625rem;
-            background: url(../img/icons/arrow.svg) center center no-repeat;
-            background-size: contain;
-            width: .75rem;
-            height: .375rem;
-            transition: .6s cubic-bezier(0.85, 0, 0.15, 1);
         }
     }
     &::before {
@@ -121,16 +91,10 @@
     }
     @media only screen and (min-width: 320px) and (max-width: 1200px) {
         border-bottom: 1px solid $gray;
-        padding-top: 1rem;
         padding-bottom: 1rem;
         padding-left: 0;
         &::before {
             content: none;
-        }
-        &::after {
-            right: 0;
-            top: 1rem;
-            left: unset;
         }
         p {
             &:last-of-type {
@@ -141,6 +105,18 @@
         }
     }
     
+}
+
+.block-list_arrow {
+    background: url(../img/icons/arrow.svg) left bottom no-repeat;
+    width: .75rem;
+    height: .375rem;
+    transition: .6s cubic-bezier(0.85, 0, 0.15, 1);
+    display: block;
+    padding-top: 100%;
+    @media only screen and (min-width: 320px) and (max-width: 1200px) {
+        padding-top: 2rem;
+    }
 }
 
 .block-list_socials {

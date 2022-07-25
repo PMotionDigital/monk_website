@@ -8,13 +8,13 @@ blockWhiteLayouts.forEach((el,index) => {
             onEnter: () => {
                 if (!el.classList.contains('block-white-layout--active')) {
                     el.classList.add('block-white-layout--active')
-                    animateValue(".block-white-layout", 0, 255, 500);
+                    animateValue(".block-white-layout", 0, 255, 1000);
                 }
                 
             },
             
-            start: "top top",
-            end: "top bottom",
+            start: "-=600 top",
+            end: "-=600 bottom",
         } 
     });
 })

@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 let logo = document.querySelector('.main-header_logo')
 
-window.onload = function() {
+// window.onload = function() {
 let t1 = gsap.timeline({
     scrollTrigger: {
         trigger: logo,
@@ -13,4 +13,4 @@ let t1 = gsap.timeline({
         end: "top top",
     } 
 });
-}
+// }

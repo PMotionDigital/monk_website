@@ -8,7 +8,7 @@ function my_acf_block_gallery()
 
         // Register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'Gallery block',
+            'name'              => 'gallery_block',
             'title'             => __('Галерея'),
             'description'       => __('Галерея'),
             'render_callback'   => 'render_gallery_block',

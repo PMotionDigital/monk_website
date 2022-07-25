@@ -58,17 +58,14 @@ blockGalleryItems.forEach((el,index) => {
 gsap.registerPlugin(ScrollTrigger);
 let blockLists = document.querySelectorAll('.block-list')
 
-blockLists.forEach((el) => {
+blockLists.forEach((el, index) => {
     let t1 = gsap.timeline({
         scrollTrigger: {
             trigger: el,
             onEnter: () => {
-                let trigerElems = el.querySelectorAll('.block-list_grid-item');
-                trigerElems.forEach((elem, index) => {
-                    setTimeout(()=> {
-                        elem.classList.add('block-list_grid-item--active')
-                    }, (index + 1) * 200)
-                })
+                setTimeout(()=> {
+                    el.classList.add('block-list--active')
+                }, (index + 1) * 200)
                 
             },
             
@@ -78,6 +75,7 @@ blockLists.forEach((el) => {
     });
 })
 
+gsap.registerPlugin(ScrollTrigger);
 if (innerWidth > 1200) {
 
 class FollowingLine {
@@ -232,6 +230,26 @@ Array.from(document.querySelectorAll('.block-news_list-item')).forEach(l => {
     console.log(fd);
 });
 }
+
+let newsItem = document.querySelectorAll('.block-news_list-item');
+
+newsItem.forEach((el,index) => {
+    let t1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: el,
+            onEnter: () => {
+                setTimeout(()=> {
+                    el.classList.add('block-news_list-item--active')
+                }, (index + 1) * 200)
+            },
+            
+            start: "-=800 top",
+            end: "-=800 bottom",
+        } 
+    });
+})
+
+
 gsap.registerPlugin(ScrollTrigger);
 let blockPortolio = document.querySelectorAll('.block-portfolio')
 
@@ -260,13 +278,13 @@ blockWhiteLayouts.forEach((el,index) => {
             onEnter: () => {
                 if (!el.classList.contains('block-white-layout--active')) {
                     el.classList.add('block-white-layout--active')
-                    animateValue(".block-white-layout", 0, 255, 500);
+                    animateValue(".block-white-layout", 0, 255, 1000);
                 }
                 
             },
             
-            start: "top top",
-            end: "top bottom",
+            start: "-=600 top",
+            end: "-=600 bottom",
         } 
     });
 })
@@ -293,7 +311,7 @@ function animateValue(classEl, start, end, duration) {
 gsap.registerPlugin(ScrollTrigger);
 let logo = document.querySelector('.main-header_logo')
 
-window.onload = function() {
+// window.onload = function() {
 let t1 = gsap.timeline({
     scrollTrigger: {
         trigger: logo,
@@ -305,12 +323,16 @@ let t1 = gsap.timeline({
         end: "top top",
     } 
 });
-}
+// }
 
-jQuery(document).ready(function ($) {
-    $(window).load(function() {
-        $('.loader').hide()
-    })
+// jQuery(document).ready(function ($) {
+    window.onload = function() {
+        if (document.querySelector('.loader')) {
+            let loader = document.querySelector('.loader');
+            loader.style.display = "none"
+        }
+        
+    }
     gsap.registerPlugin(ScrollTrigger);
     let starAnim = document.querySelectorAll('.start-anim')
     starAnim.forEach((el,index) => {
@@ -328,4 +350,4 @@ jQuery(document).ready(function ($) {
     })
     
     
-})
+// })

@@ -1,7 +1,11 @@
-jQuery(document).ready(function ($) {
-    $(window).load(function() {
-        $('.loader').hide()
-    })
+// jQuery(document).ready(function ($) {
+    window.onload = function() {
+        if (document.querySelector('.loader')) {
+            let loader = document.querySelector('.loader');
+            loader.style.display = "none"
+        }
+        
+    }
     gsap.registerPlugin(ScrollTrigger);
     let starAnim = document.querySelectorAll('.start-anim')
     starAnim.forEach((el,index) => {
@@ -19,4 +23,4 @@ jQuery(document).ready(function ($) {
     })
     
     
-})
+// })

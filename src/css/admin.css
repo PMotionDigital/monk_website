@@ -3,3 +3,31 @@
     transform: none !important;
     opacity: 1 !important;
 }
+
+.editor-styles-wrapper .block-list {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+.editor-styles-wrapper .block-list {
+    pointer-events: none !important;
+}
+
+
+.editor-styles-wrapper .block-portfolio {
+    opacity: 1 !important;
+}
+
+.editor-styles-wrapper .block-portfolio a {
+    pointer-events: none !important;
+}
+
+.editor-styles-wrapper .block-news_list-item {
+    opacity: 1 !important;
+    transform: none !important;
+    color: #ffffff;
+}
+
+.editor-styles-wrapper .block-news_list-item a {
+    pointer-events: none !important;
+}

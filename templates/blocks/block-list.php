@@ -8,9 +8,9 @@ function my_acf_block_list()
 
         // Register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'List block',
-            'title'             => __('Список'),
-            'description'       => __('Список'),
+            'name'              => 'list_block',
+            'title'             => __('Услуга'),
+            'description'       => __('Услуга'),
             'render_callback'   => 'render_list_block',
             'category'          => 'custom-blocks',
             'mode'              => 'preview',
@@ -44,31 +44,44 @@ function render_list_block($block)
     }
 
 ?>
-<div id="<?php echo esc_html($id); ?>" class="block-list <?= get_field('block_list_grid_white_bg') ? 'block-list--three' : 'block-list--four' ?> <?php echo esc_html($className); ?>">
-
-<?php if( have_rows('block_list_grid') ): ?>
-    <ul class="block-list_wrapper-grid <?= get_field('block_list_grid_white_bg') ? 'block-list_wrapper-grid--three' : 'block-list_wrapper-grid--four' ?>">
-        <?php while( have_rows('block_list_grid') ) : the_row(); ?>
-            <li class="block-list_grid-item <?= get_sub_field('block_list_socials') ? 'block-list_grid-item--notarrow' : 'block-list_grid-item--witharrow' ?>">
-                <div>
-                    <p><?php the_sub_field('block_list_grid_text_bold'); ?></p>
-                    <p><?php the_sub_field('block_list_grid_text'); ?></p>
-                </div>
-                <?php if (get_sub_field('block_list_socials')) : ?>
+<div id="<?php echo esc_html($id); ?>" class="block-list <?= get_field('block_list_grid_white_bg') ? 'block-list--white' : 'block-list--black' ?> <?php echo esc_html($className); ?>">
+    <div class="block-list_wrapper-grid <?= get_field('block_list_grid_white_bg') ? 'block-list_wrapper-grid--white' : 'block-list_wrapper-grid--black' ?>">
+        <a href="<?php the_field('block_list_socials_link'); ?>" class="block-list_grid-item <?= get_field('block_list_socials') ? 'block-list_grid-item--notarrow' : 'block-list_grid-item--witharrow' ?>">
+            <div>
+                <p><?php the_field('block_list_grid_text_bold'); ?></p>
+                <p><?php the_field('block_list_grid_text'); ?></p>
+            </div>
+            <?php 
+                $socials = get_field('block_list_socials');
+                if ($socials == 1) : ?>
                     <?php if( have_rows('block_list_socials_list') ): ?>
-                    <div class="block-list_socials">
-                        <?php while( have_rows('block_list_socials_list') ) : the_row(); ?>
-                        <a href="<?php the_sub_field('link'); ?>" class="block-list_socials-item"><img src="<?php the_sub_field('image'); ?>"></a>
-                        <?php endwhile; ?>
-                    </div>
-                <?php endif; endif;?>
-            </li>
-        <?php endwhile; ?>
-    </ul>
-<?php endif; ?>
-
+                        <div class="block-list_socials">
+                            <?php while( have_rows('block_list_socials_list') ) : the_row(); ?>
+                            <object class="block-list_socials-item">
+                                <a href="<?php the_sub_field('link'); ?>"><img src="<?php the_sub_field('image'); ?>"/></a>
+                            </object>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif;
+                else : ?>
+                <span class="block-list_arrow"></span>
+            <?php endif; ?>
+        </a>
+    </div>
 </div>
 
+<?php //if (get_field('block_list_socials')) : ?>
+                <!-- <?php //if( have_rows('block_list_socials_list') ): ?>
+                <div class="block-list_socials">
+                    <?php //while( have_rows('block_list_socials_list') ) : the_row(); ?>
+                    <a href="<?php //the_sub_field('link'); ?>" class="block-list_socials-item"><img src="<?php //the_sub_field('image'); ?>"/></a>
+                    <?php //endwhile; ?>
+                </div> -->
+                <?php 
+                //endif; 
+            //else : ?>
+
 <?php
+
 }
 ?>

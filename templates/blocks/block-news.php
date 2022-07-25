@@ -8,7 +8,7 @@ function my_acf_block_news()
 
         // Register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'News block',
+            'name'              => 'news_block',
             'title'             => __('Новости'),
             'description'       => __('Новости'),
             'render_callback'   => 'render_news_block',
@@ -69,43 +69,42 @@ function render_news_block($block)
                 <li class="block-news_wrap-nav_author">Автор</li>
             </ul>
             
-            <ul class="block-news_wrap-list">
+            <div class="block-news_wrap-list">
                 <?php while ( $loop->have_posts() ) : $loop->the_post(); 
                     $post_id = get_the_ID();
-                ?>  <li>
-                        <a href="<?php echo get_permalink( $post_id ) ?>" class="block-news_list-item">
-                            <div class="block-news_list-item_title">
-                                <h3><?php the_title(); ?></h3>
+                ?> 
+                    <a href="<?php echo get_permalink( $post_id ) ?>" class="block-news_list-item">
+                        <div class="block-news_list-item_title">
+                            <h3><?php the_title(); ?></h3>
+                        </div>
+                        <div class="block-news_list-item_category">
+                            <p>
+                                <?php $cats = get_the_category($post_id);
+                                    foreach ($cats as $cat) :
+                                        if (count($cats) > 1) :
+                                        echo $cat->name . ',';
+                                        else :
+                                        echo $cat->name;
+                                        endif;
+                                    endforeach;
+                                ?>
+                            </p>
+                        </div>
+                        <div class="block-news_list-item_date">
+                            <p><?= get_the_date() ?></p>
+                        </div>
+                        <div class="block-news_list-item_author">
+                            <p><?= the_field('block_news_author', $post_id); ?></p>
+                        </div>
+                        
+                        <?php if (has_post_thumbnail()) : ?>
+                            <div class="follow-cursor">
+                                <?php the_post_thumbnail(); ?>
                             </div>
-                            <div class="block-news_list-item_category">
-                                <p>
-                                    <?php $cats = get_the_category($post_id);
-                                        foreach ($cats as $cat) :
-                                            if (count($cats) > 1) :
-                                            echo $cat->name . ',';
-                                            else :
-                                            echo $cat->name;
-                                            endif;
-                                        endforeach;
-                                    ?>
-                                </p>
-                            </div>
-                            <div class="block-news_list-item_date">
-                                <p><?= get_the_date() ?></p>
-                            </div>
-                            <div class="block-news_list-item_author">
-                                <p><?= the_field('block_news_author', $post_id); ?></p>
-                            </div>
-                            
-                            <?php if (has_post_thumbnail()) : ?>
-                                <div class="follow-cursor">
-                                    <?php the_post_thumbnail(); ?>
-                                </div>
-                            <?php endif; ?>
-                        </a>
-                    </li>
+                        <?php endif; ?>
+                    </a>
                 <?php endwhile; ?>
-            </ul>
+            </div>
         </div>
         
     </div>
